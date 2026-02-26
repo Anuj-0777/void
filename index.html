@@ -14,35 +14,37 @@ body{
     color:white;
 }
    .ad-popup{
+    display:none;
     position:fixed;
     top:0;
     left:0;
     width:100%;
     height:100%;
-    background:rgba(0,0,0,0.8);
-    display:none; /* hidden by default */
+    background:black;   /* full dark background */
+    z-index:9999;
     justify-content:center;
     align-items:center;
-    z-index:2000;
 }
 .ad-content{
+    width:100%;
+    height:100%;
     position:relative;
 }
 
 .ad-content img{
-    width:400px;
-    border-radius:10px;
+    width:100%;
+    height:100%;
+    object-fit:cover;   /* makes image fill without distortion */
 }
 
 .close-btn{
     position:absolute;
-    top:-10px;
-    right:-10px;
-    background:red;
+    top:20px;
+    right:30px;
+    font-size:35px;
     color:white;
-    padding:5px 10px;
     cursor:pointer;
-    border-radius:50%;
+    z-index:10000;
 }
 
 /* NAVBAR - Buttons on RIGHT side */
@@ -469,6 +471,7 @@ function showPage(pageId) {
 
 </body>
 </html>
+
 
 
 
