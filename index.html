@@ -6,7 +6,7 @@
 <title>Void Corporation</title>
 
 <style>
-/* KEEPING YOUR ORIGINAL DARK THEME */
+/* DARK THEME */
 body{
     margin:0;
     font-family: Arial, sans-serif;
@@ -14,7 +14,7 @@ body{
     color:white;
 }
 
-/* NAVBAR - Same as before */
+/* NAVBAR - Buttons on RIGHT side */
 nav{
     background:#020617;
     padding:15px 40px;
@@ -29,27 +29,46 @@ nav{
 nav h2{
     color:#38bdf8;
     margin:0;
+    font-size:24px;
 }
 
-nav a{
+/* NAVBAR BUTTONS - More clickable */
+nav .nav-buttons{
+    display:flex;
+    gap:10px;
+}
+
+nav .nav-btn {
     color:white;
     text-decoration:none;
-    margin-left:20px;
+    padding:10px 20px;
+    border-radius:5px;
     cursor:pointer;
+    font-weight:bold;
+    transition:all 0.3s ease;
+    background:#1e293b;
+    border:1px solid #38bdf8;
 }
 
-nav a:hover{
-    color:#38bdf8;
+nav .nav-btn:hover{
+    background:#38bdf8;
+    color:#0f172a;
 }
 
-/* PAGE LOGIC - Same as before */
+nav .nav-btn.active{
+    background:#38bdf8;
+    color:#0f172a;
+}
+
+/* PAGE LOGIC - Hide all sections by default */
 .page-section {
     display: none;
     animation: fadeIn 0.5s;
 }
 
+/* Show Home by default */
 #home {
-    display: flex;
+    display: block;
 }
 
 @keyframes fadeIn {
@@ -57,7 +76,7 @@ nav a:hover{
     to { opacity: 1; }
 }
 
-/* HERO - Updated with background image and text ON TOP */
+/* HERO - Background image with text ON TOP */
 .hero{
     height:90vh;
     width: 100%;
@@ -73,18 +92,32 @@ nav a:hover{
 /* Text ON the image */
 .hero h1{
     font-size:50px;
-    background:rgba(0,0,0,0.6); /* Semi-transparent background for readability */
+    background:rgba(0,0,0,0.7);
     padding:10px 20px;
     border-radius:10px;
-    margin-bottom: 10px;
+    margin-bottom:10px;
 }
 
 .hero p{
     font-size:20px;
-    margin-top:0;
-    background:rgba(0,0,0,0.6);
+    background:rgba(0,0,0,0.7);
     padding:8px 15px;
     border-radius:8px;
+}
+
+/* TEXT AFTER IMAGE */
+.text-after-image {
+    padding:60px 20px;
+    background:#0f172a;
+    text-align:center;
+}
+
+.text-after-image p{
+    max-width:800px;
+    margin:0 auto;
+    font-size:18px;
+    line-height:1.8;
+    color:#cbd5e1;
 }
 
 /* SECTIONS GENERAL */
@@ -131,27 +164,22 @@ nav a:hover{
     box-shadow:0 0 20px #38bdf8;
 }
 
-/* NEW SECTION - Text after image */
-.text-after-image {
-    padding:60px 20px;
-    background:#0f172a;
-    text-align:center;
-}
-
-.text-after-image p{
-    max-width:800px;
-    margin:0 auto;
-    font-size:18px;
-    line-height:1.8;
-    color:#cbd5e1;
-}
-
 /* CONTACT */
 .contact-container{
     display:flex;
-    justify-content:space-between;
+    justify-content:center;
+    gap:50px;
     padding:40px;
     flex-wrap:wrap;
+}
+
+.contact-item h4{
+    color:#38bdf8;
+    margin-bottom:10px;
+}
+
+.contact-item p{
+    color:#cbd5e1;
 }
 
 /* FOOTER */
@@ -160,32 +188,32 @@ footer{
     text-align:center;
     padding:20px;
     color:#94a3b8;
-    margin-top: auto;
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+<!-- NAVBAR - Buttons on RIGHT side -->
 <nav>
     <h2>VOID CORPORATION</h2>
-    <div>
-        <a onclick="showPage('home')">Home</a>
-        <a onclick="showPage('about')">About</a>
-        <a onclick="showPage('subsidiary')">Subsidiary</a>
-        <a onclick="showPage('contact')">Contact</a>
+    <div class="nav-buttons">
+        <a class="nav-btn active" onclick="showPage('home')" id="btn-home">Home</a>
+        <a class="nav-btn" onclick="showPage('about')" id="btn-about">About</a>
+        <a class="nav-btn" onclick="showPage('subsidiary')" id="btn-subsidiary">Subsidiary</a>
+        <a class="nav-btn" onclick="showPage('contact')" id="btn-contact">Contact</a>
     </div>
 </nav>
 
-<!-- HOME / HERO SECTION - Text ON image -->
+<!-- HOME SECTION -->
 <div id="home" class="page-section">
+    <!-- Hero with text ON image -->
     <div class="hero">
         <h1>Welcome to Void Corporation</h1>
         <p>Innovating the Future Through Technology & Business Excellence</p>
     </div>
     
-    <!-- NEW: Text AFTER image (on same page) -->
+    <!-- Text AFTER image -->
     <div class="text-after-image">
         <p>At Void, we believe that the most profound breakthroughs often begin in the space between what exists and what<br>
             is yet to be imagined. As a premier parent firm and strategic powerhouse, Void serves as the central nervous system for<br>
@@ -197,7 +225,7 @@ footer{
 <div id="about" class="page-section">
     <div class="section">
         <h2>About Us</h2>
-        <p>
+        <p style="max-width:800px; margin:0 auto; color:#cbd5e1;">
             Void Corporation is a diversified enterprise managing multiple subsidiaries 
             across technology, innovation, and business consulting sectors. 
             We aim to build a strong ecosystem of forward-thinking companies that drive 
@@ -212,9 +240,8 @@ footer{
         <h2>Our Subsidiaries</h2>
 
         <div class="container">
-
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=60" alt="techtotem">
+                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=60" alt="Techtotem">
                 <h3>Techtotem</h3>
                 <p>Electronics and advanced technology solutions for modern industries.</p>
             </div>
@@ -239,14 +266,14 @@ footer{
     <div class="section">
         <h2>Contact Us</h2>
 
-        <div class="contact-container" style="justify-content:center; text-align:left;">
-            <div>
+        <div class="contact-container">
+            <div class="contact-item">
                 <h4>Phone</h4>
                 <p>+91 7027031104</p>
                 <p>Call Attender: Mr. Parveen</p>
             </div>
 
-            <div style="margin-left: 50px;">
+            <div class="contact-item">
                 <h4>Address</h4>
                 <p>Mohali, Chandigarh, India</p>
             </div>
@@ -259,22 +286,28 @@ footer{
     © 2026 Void Corporation | All Rights Reserved
 </footer>
 
-<!-- SAME JAVASCRIPT -->
+<!-- JAVASCRIPT -->
 <script>
     function showPage(pageId) {
+        // 1. Hide all sections
         const sections = document.querySelectorAll('.page-section');
-        
         sections.forEach(section => {
             section.style.display = 'none';
         });
 
+        // 2. Show the clicked section
         const activeSection = document.getElementById(pageId);
         if (activeSection) {
-            if(pageId === 'home') {
-                activeSection.style.display = 'flex';
-            } else {
-                activeSection.style.display = 'block';
-            }
+            activeSection.style.display = 'block';
+        }
+
+        // 3. Update button active state
+        const buttons = document.querySelectorAll('.nav-btn');
+        buttons.forEach(btn => btn.classList.remove('active'));
+        
+        const activeBtn = document.getElementById('btn-' + pageId);
+        if (activeBtn) {
+            activeBtn.classList.add('active');
         }
     }
 </script>
