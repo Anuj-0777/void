@@ -20,11 +20,12 @@ body{
     left:0;
     width:100%;
     height:100%;
-    background:black;   /* full dark background */
+    background:black;
     z-index:9999;
     justify-content:center;
     align-items:center;
 }
+
 .ad-content{
     width:100%;
     height:100%;
@@ -34,7 +35,7 @@ body{
 .ad-content img{
     width:100%;
     height:100%;
-    object-fit:cover;   /* makes image fill without distortion */
+    object-fit:cover;
 }
 
 .close-btn{
@@ -46,7 +47,6 @@ body{
     cursor:pointer;
     z-index:10000;
 }
-
 /* NAVBAR - Buttons on RIGHT side */
 nav{
     background:#020617;
@@ -287,10 +287,10 @@ footer{
 </head>
 
 <body>
-    <div id="ad-popup" class="ad-popup">
+   <div id="ad-popup" class="ad-popup">
     <div class="ad-content">
         <span class="close-btn" onclick="closeAd()">×</span>
-        <img src="ads.png" alt="Advertisement">
+        <img id="ad-image" src="ads.png" alt="Advertisement">
     </div>
 </div>
 
@@ -431,9 +431,28 @@ Innovative Businesses: Through our daughter companies, we launch and scale ventu
 
 <!-- JAVASCRIPT -->
 <script>
+const images = ["ads.png", "ads1.png", "ads3.png"];
+let currentImage = 0;
+let adInterval;
+
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("ad-popup").style.display = "flex";
+    startAdSlider();
+});
+
+function startAdSlider(){
+    adInterval = setInterval(function(){
+        currentImage++;
+        if(currentImage >= images.length){
+            currentImage = 0;
+        }
+        document.getElementById("ad-image").src = images[currentImage];
+    }, 5000); // 5 seconds
+}
 
 function closeAd(){
     document.getElementById("ad-popup").style.display = "none";
+    clearInterval(adInterval); // stop slider when closed
 }
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -471,6 +490,7 @@ function showPage(pageId) {
 
 </body>
 </html>
+
 
 
 
