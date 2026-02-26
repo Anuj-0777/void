@@ -13,19 +13,18 @@ body{
     background:#0f172a;
     color:white;
 }
-    .ad-popup{
+   .ad-popup{
     position:fixed;
     top:0;
     left:0;
     width:100%;
     height:100%;
     background:rgba(0,0,0,0.8);
-    display:flex;
+    display:none; /* hidden by default */
     justify-content:center;
     align-items:center;
     z-index:2000;
 }
-
 .ad-content{
     position:relative;
 }
@@ -434,32 +433,51 @@ Innovative Businesses: Through our daughter companies, we launch and scale ventu
 function closeAd(){
     document.getElementById("ad-popup").style.display = "none";
 }
-    function showPage(pageId) {
-        // 1. Hide all sections
-        const sections = document.querySelectorAll('.page-section');
-        sections.forEach(section => {
-            section.style.display = 'none';
-        });
 
-        // 2. Show the clicked section
-        const activeSection = document.getElementById(pageId);
-        if (activeSection) {
-            activeSection.style.display = 'block';
-        }
+function showAd(){
+    document.getElementById("ad-popup").style.display = "flex";
+}
 
-        // 3. Update button active state
-        const buttons = document.querySelectorAll('.nav-btn');
-        buttons.forEach(btn => btn.classList.remove('active'));
-        
-        const activeBtn = document.getElementById('btn-' + pageId);
-        if (activeBtn) {
-            activeBtn.classList.add('active');
-        }
+window.onload = function(){
+    showAd(); // Show ad when site first loads
+};
+
+function showPage(pageId) {
+
+    // Hide ad if not home
+    if(pageId !== "home"){
+        closeAd();
+    } else {
+        showAd();
     }
+
+    // 1. Hide all sections
+    const sections = document.querySelectorAll('.page-section');
+    sections.forEach(section => {
+        section.style.display = 'none';
+    });
+
+    // 2. Show selected section
+    const activeSection = document.getElementById(pageId);
+    if (activeSection) {
+        activeSection.style.display = 'block';
+    }
+
+    // 3. Update button active state
+    const buttons = document.querySelectorAll('.nav-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    
+    const activeBtn = document.getElementById('btn-' + pageId);
+    if (activeBtn) {
+        activeBtn.classList.add('active');
+    }
+}
+
 </script>
 
 </body>
 </html>
+
 
 
 
