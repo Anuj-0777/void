@@ -431,6 +431,7 @@ Innovative Businesses: Through our daughter companies, we launch and scale ventu
 
 <!-- JAVASCRIPT -->
 <script>
+
 const images = ["ads.png", "ads1.png", "ads3.png"];
 let currentImage = 0;
 let adInterval;
@@ -447,24 +448,18 @@ function startAdSlider(){
             currentImage = 0;
         }
         document.getElementById("ad-image").src = images[currentImage];
-    }, 5000); // 5 seconds
+    }, 5000);
 }
 
 function closeAd(){
     document.getElementById("ad-popup").style.display = "none";
-    clearInterval(adInterval); // stop slider when closed
+    clearInterval(adInterval);
 }
-
-document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("ad-popup").style.display = "flex";
-});
 
 function showPage(pageId) {
 
     if(pageId !== "home"){
         closeAd();
-    } else {
-        document.getElementById("ad-popup").style.display = "flex";
     }
 
     const sections = document.querySelectorAll('.page-section');
@@ -487,9 +482,9 @@ function showPage(pageId) {
 }
 
 </script>
-
 </body>
 </html>
+
 
 
 
