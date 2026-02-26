@@ -189,6 +189,27 @@ footer{
     padding:20px;
     color:#94a3b8;
 }
+    /* SIDE IMAGE + TEXT (No change to existing layout) */
+.side-section{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:40px;
+    padding:60px 40px;
+    flex-wrap:wrap;
+}
+
+.side-section img{
+    width:350px;
+    border-radius:12px;
+}
+
+.side-text{
+    max-width:600px;
+    font-size:18px;
+    line-height:1.8;
+    color:#cbd5e1;
+}
 </style>
 </head>
 
@@ -196,7 +217,7 @@ footer{
 
 <!-- NAVBAR - Buttons on RIGHT side -->
 <nav>
-    <h2>VOID CORPORATION</h2>
+    <h1>VOID CORPORATION</h1>
     <div class="nav-buttons">
         <a class="nav-btn active" onclick="showPage('home')" id="btn-home">Home</a>
         <a class="nav-btn" onclick="showPage('about')" id="btn-about">About</a>
@@ -210,15 +231,20 @@ footer{
     <!-- Hero with text ON image -->
     <div class="hero">
         <h1 style="font-size:80px;">Welcome to Void Corporation</h1>
-        <p>Innovating the Future Through Technology & Business Excellence</p>
+        <p><h2></h2>Innovating the Future Through Technology & Business Excellence</h2></p>
     </div>
     
     <!-- Text AFTER image -->
     <div class="content">
-        <p style="text-align: left;">At Void, we believe that the most profound breakthroughs often begin in the space between what exists and what<br>
-            is yet to be imagined. As a premier parent firm and strategic powerhouse, Void serves as the central nervous system for<br>
-            a diverse ecosystem of daughter companies dedicated to pushing the boundaries of modern industry.</p>
-    </div>
+         <img src="logo.png" alt="Void Image" class="left-img">
+    <p style="text-align: right; style="font-size:30px;"">
+        At Void, we believe that the most profound breakthroughs often<br>
+        begin in the space between what exists and what is yet to be imagined.<br>
+        As a premier parent firm and strategic powerhouse, Void serves as the<br>
+        central nervous system for a diverse ecosystem of daughter companies<br>
+        dedicated to pushing the boundaries of modern industry.
+    </p>
+</div>
 </div>
 
 <!-- ABOUT SECTION -->
@@ -314,6 +340,7 @@ footer{
 
 </body>
 </html>
+
 
 
 
