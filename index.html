@@ -434,36 +434,28 @@ function closeAd(){
     document.getElementById("ad-popup").style.display = "none";
 }
 
-function showAd(){
+document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("ad-popup").style.display = "flex";
-}
-
-window.onload = function(){
-    showAd(); // Show ad when site first loads
-};
+});
 
 function showPage(pageId) {
 
-    // Hide ad if not home
     if(pageId !== "home"){
         closeAd();
     } else {
-        showAd();
+        document.getElementById("ad-popup").style.display = "flex";
     }
 
-    // 1. Hide all sections
     const sections = document.querySelectorAll('.page-section');
     sections.forEach(section => {
         section.style.display = 'none';
     });
 
-    // 2. Show selected section
     const activeSection = document.getElementById(pageId);
     if (activeSection) {
         activeSection.style.display = 'block';
     }
 
-    // 3. Update button active state
     const buttons = document.querySelectorAll('.nav-btn');
     buttons.forEach(btn => btn.classList.remove('active'));
     
@@ -477,6 +469,7 @@ function showPage(pageId) {
 
 </body>
 </html>
+
 
 
 
