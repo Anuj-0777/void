@@ -432,14 +432,19 @@ Innovative Businesses: Through our daughter companies, we launch and scale ventu
 <!-- JAVASCRIPT -->
 <script>
 
-const images = ["ads.png", "ads1.png", "ads3.png"];
+const images = [
+"https://via.placeholder.com/1200x800/ff0000",
+"https://via.placeholder.com/1200x800/00ff00",
+"https://via.placeholder.com/1200x800/0000ff"
+];
 let currentImage = 0;
 let adInterval;
-let adClosed = false;
 
-// Show ad only once when site loads
-document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("ad-popup").style.display = "flex";
+// Force show ad when page loads
+window.addEventListener("load", function() {
+    const popup = document.getElementById("ad-popup");
+    popup.style.display = "flex";
+    document.body.style.overflow = "hidden"; // prevent scrolling
     startAdSlider();
 });
 
@@ -451,11 +456,13 @@ function startAdSlider(){
 }
 
 function closeAd(){
-    document.getElementById("ad-popup").style.display = "none";
+    const popup = document.getElementById("ad-popup");
+    popup.style.display = "none";
+    document.body.style.overflow = "auto"; // enable scrolling
     clearInterval(adInterval);
-    adClosed = true;
 }
 
+// IMPORTANT: showPage should NOT touch the ad
 function showPage(pageId) {
 
     const sections = document.querySelectorAll('.page-section');
@@ -480,6 +487,7 @@ function showPage(pageId) {
 </script>
 </body>
 </html>
+
 
 
 
