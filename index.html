@@ -37,7 +37,7 @@ body{
     border-radius: 0;
 }
 .ad-close {
-    position: relative;
+    position: absolute;
     top: 20px;
     right: 20px;
     width: 40px;
@@ -464,11 +464,10 @@ function closeAd() {
     clearInterval(adInterval);
 }
 
-// Show ad after 2 seconds
-setTimeout(showAd, 100);
-
-// Auto close after 10 seconds
-setTimeout(closeAd, 50);
+window.onload = function() {
+    showAd();                 // Show immediately
+    setTimeout(closeAd, 25000);  // Close after 25 seconds
+};
 
 // Page switch function
 function showPage(pageId) {
@@ -494,6 +493,7 @@ function showPage(pageId) {
 
 </body>
 </html>
+
 
 
 
