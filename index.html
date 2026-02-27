@@ -294,10 +294,12 @@ footer{
 </head>
 
 <body>
-  <!-- AD POPUP HTML - Paste this where you want the ad to appear -->
+
+<!-- AD POPUP HTML -->
 <div id="adPopup" class="ad-popup">
     <div class="ad-content">
-        <img src="YOUR_AD_IMAGE_URL_HERE.jpg" alt="Advertisement">
+        <!-- Replace with your ad image URL -->
+        <img src="https://via.placeholder.com/800x600.png?text=Your+Ad+Here" alt="Advertisement" id="adImage">
         <button class="ad-close" onclick="closeAd()">&times;</button>
     </div>
 </div>
@@ -437,51 +439,44 @@ Innovative Businesses: Through our daughter companies, we launch and scale ventu
     © 2026 Void Corporation | All Rights Reserved
 </footer>
 
-<!-- JAVASCRIPT -->
+<!-- CORRECTED JAVASCRIPT -->
 <script>
-
-const images = [
-<img src="https://example.com/your-ad-banner.jpg" alt="Advertisement">
+// Ad images array - use image URLs as strings
+const adImages = [
+    "https://via.placeholder.com/800x600.png?text=Your+Ad+Here"
+    // Add more ad images like: "ad2.jpg", "ad3.jpg"
 ];
 
-let currentImage = 0;
+let currentAdIndex = 0;
 let adInterval;
 
-window.addEventListener("load", function() {
+function showAd() {
+    document.getElementById('adPopup').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    
+    // Start ad rotation if you have multiple ads
+    if (adImages.length > 1) {
+        adInterval = setInterval(function() {
+            currentAdIndex = (currentAdIndex + 1) % adImages.length;
+            document.getElementById('adImage').src = adImages[currentAdIndex];
+        }, 5000);
+    }
+}
 
-    const popup = document.getElementById("ad-popup");
-    const imgTag = document.getElementById("ad-image");
-
-    // Fallback if image fails
-    imgTag.onerror = function() {
-        imgTag.src = "https://via.placeholder.com/1600x900";
-    };
-
-    // Show first image
-    imgTag.src = images[currentImage];
-
-    // Show popup
-    popup.style.display = "flex";
-    document.body.style.overflow = "hidden";
-
-    // Start slider
-    adInterval = setInterval(function(){
-        currentImage = (currentImage + 1) % images.length;
-        imgTag.src = images[currentImage];
-    }, 5000);
-
-});
-
-// Close popup
-function closeAd(){
-    document.getElementById("ad-popup").style.display = "none";
-    document.body.style.overflow = "auto";
+function closeAd() {
+    document.getElementById('adPopup').style.display = 'none';
+    document.body.style.overflow = 'auto';
     clearInterval(adInterval);
 }
 
+// Show ad after 2 seconds
+setTimeout(showAd, 2000);
+
+// Auto close after 10 seconds
+setTimeout(closeAd, 10000);
+
 // Page switch function
 function showPage(pageId) {
-
     const sections = document.querySelectorAll('.page-section');
     sections.forEach(section => {
         section.style.display = 'none';
@@ -500,25 +495,7 @@ function showPage(pageId) {
         activeBtn.classList.add('active');
     }
 }
-    function showAd() {
-    document.getElementById('adPopup').style.display = 'flex';
-}
-
-function closeAd() {
-    document.getElementById('adPopup').style.display = 'none';
-}
-
-// Show ad after 2 seconds
-setTimeout(showAd, 2000);
-
-// Auto close after 10 seconds
-setTimeout(closeAd, 10000);
-
 </script>
+
 </body>
 </html>
-
-
-
-
-
