@@ -13,40 +13,47 @@ body{
     background:#0f172a;
     color:white;
 }
-   .ad-popup{
-    display:flex;
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:black;
-    z-index:9999;
-    justify-content:center;
-    align-items:center;
+  .ad-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
 }
 
-.ad-content{
-    width:100%;
-    height:100%;
-    position:relative;
+.ad-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
 }
 
-.ad-content img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
+.ad-content img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
-.close-btn{
-    position:absolute;
-    top:20px;
-    right:30px;
-    font-size:35px;
-    color:white;
-    cursor:pointer;
-    z-index:10000;
+.ad-close {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 30px;
+    height: 30px;
+    background: white;
+    color: black;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
 }
+
+
 /* NAVBAR - Buttons on RIGHT side */
 nav{
     background:#020617;
@@ -287,10 +294,11 @@ footer{
 </head>
 
 <body>
-   <div id="ad-popup" class="ad-popup">
+  <!-- AD POPUP HTML - Paste this where you want the ad to appear -->
+<div id="adPopup" class="ad-popup">
     <div class="ad-content">
-        <span class="close-btn" onclick="closeAd()">×</span>
-        <img id="ad-image" src="ads.png" alt="Advertisement">
+        <img src="YOUR_AD_IMAGE_URL_HERE.jpg" alt="Advertisement">
+        <button class="ad-close" onclick="closeAd()">&times;</button>
     </div>
 </div>
 
@@ -433,9 +441,7 @@ Innovative Businesses: Through our daughter companies, we launch and scale ventu
 <script>
 
 const images = [
-"https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=60",
-"https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=1600&q=60",
-"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=60"
+<img src="https://example.com/your-ad-banner.jpg" alt="Advertisement">
 ];
 
 let currentImage = 0;
@@ -494,10 +500,24 @@ function showPage(pageId) {
         activeBtn.classList.add('active');
     }
 }
+    function showAd() {
+    document.getElementById('adPopup').style.display = 'flex';
+}
+
+function closeAd() {
+    document.getElementById('adPopup').style.display = 'none';
+}
+
+// Show ad after 2 seconds
+setTimeout(showAd, 2000);
+
+// Auto close after 10 seconds
+setTimeout(closeAd, 10000);
 
 </script>
 </body>
 </html>
+
 
 
 
