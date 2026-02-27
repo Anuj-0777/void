@@ -13,7 +13,9 @@ body{
     background:#0f172a;
     color:white;
 }
-  .ad-popup {
+  
+/* AD POPUP STYLES - FIXED */
+.ad-popup {
     display: none;
     position: fixed;
     top: 0;
@@ -28,29 +30,39 @@ body{
 
 .ad-content {
     position: relative;
-    max-width: 90%;
-    max-height: 90%;
+    display: inline-block;
+    max-width: 80%;
+    max-height: 80%;
 }
 
 .ad-content img {
-    width: 100%;
-    height: auto;
+    max-width: 100%;
+    max-height: 80vh;
     display: block;
+    border-radius: 10px;
 }
 
 .ad-close {
     position: absolute;
-    top: -15px;
-    right: -15px;
-    width: 30px;
-    height: 30px;
+    top: -20px;
+    right: -20px;
+    width: 40px;
+    height: 40px;
     background: white;
     color: black;
     border: none;
     border-radius: 50%;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.ad-close:hover {
+    background: #e0e0e0;
 }
 
 
@@ -66,7 +78,7 @@ nav{
     z-index:1000;
 }
 
-nav h2{
+nav h1{
     color:#38bdf8;
     margin:0;
     font-size:24px;
@@ -231,7 +243,8 @@ footer{
     padding:20px;
     color:#94a3b8;
 }
-    /* SIDE IMAGE + TEXT (No change to existing layout) */
+
+/* SIDE IMAGE + TEXT */
 .side-section{
     display:flex;
     align-items:center;
@@ -247,7 +260,7 @@ footer{
 }
 
 .left-img{
-    width:500px;          /* Adjust image size here */
+    width:500px;
     height:300;
     border-radius:15px;
 }
@@ -259,7 +272,8 @@ footer{
     color:#cbd5e1;
     text-align:right;
 }
-    .content{
+
+.content{
     display:flex;
     align-items:center;
     justify-content:center;
@@ -267,7 +281,8 @@ footer{
     padding:60px 40px;
     flex-wrap:wrap;
 }
-    /* TEXT LEFT - IMAGE RIGHT */
+
+/* TEXT LEFT - IMAGE RIGHT */
 .reverse-content{
     display:flex;
     align-items:center;
@@ -295,16 +310,16 @@ footer{
 
 <body>
 
-<!-- AD POPUP HTML -->
+<!-- AD POPUP HTML - Put your image path here -->
 <div id="adPopup" class="ad-popup">
     <div class="ad-content">
-        <!-- Replace with your ad image URL -->
-        <img src="https://via.placeholder.com/800x600.png?text=Your+Ad+Here" alt="Advertisement" id="adImage">
+        <!-- CHANGE THIS: Replace with your actual image file -->
+        <img src="ads.png" alt="Advertisement" id="adImage">
         <button class="ad-close" onclick="closeAd()">&times;</button>
     </div>
 </div>
 
-<!-- NAVBAR - Buttons on RIGHT side -->
+<!-- NAVBAR -->
 <nav>
     <h1>VOID CORPORATION</h1>
     <div class="nav-buttons">
@@ -317,61 +332,47 @@ footer{
 
 <!-- HOME SECTION -->
 <div id="home" class="page-section">
-    <!-- Hero with text ON image -->
     <div class="hero home-hero">
         <h1 style="font-size:80px;">Welcome to Void Corporation</h1>
         <p style="font-size: 30px;">Innovating the Future Through Technology & Business Excellence</p>
     </div>
     
-    <!-- Text AFTER image -->
-   <div class="content">
-
-    <img src="h1.png" alt="Void Image" class="left-img">
-
-    <p class="side-text">
-        At Void, we believe that the most profound breakthroughs often
-        begin in the space between what exists and what is yet to be imagined.
-        As a premier parent firm and strategic powerhouse, Void serves as the
-        central nervous system for a diverse ecosystem of daughter companies
-        dedicated to pushing the boundaries of modern industry.
-    </p>
-
-</div>
-    <div class="reverse-content">
-    <div class="reverse-text">
-        <h2 style="color:#38bdf8;">Who We Are </h2>
-        <p>
-             Void is more than a holding company; we are a catalyst for evolution. 
-            We operate at the intersection of high-level strategy and radical creativity. 
-            By providing the structural foundation and visionary leadership for our  
-            subsidiary brands, we ensure that every entity within the Void portfolio  
-            has the resources and the creative freedom to disrupt their respective markets. 
+    <div class="content">
+        <img src="h1.png" alt="Void Image" class="left-img">
+        <p class="side-text">
+            At Void, we believe that the most profound breakthroughs often
+            begin in the space between what exists and what is yet to be imagined.
+            As a premier parent firm and strategic powerhouse, Void serves as the
+            central nervous system for a diverse ecosystem of daughter companies
+            dedicated to pushing the boundaries of modern industry.
         </p>
     </div>
 
-    <img src="h2.png" alt="Mission Image" class="reverse-img">
+    <div class="reverse-content">
+        <div class="reverse-text">
+            <h2 style="color:#38bdf8;">Who We Are </h2>
+            <p>
+                 Void is more than a holding company; we are a catalyst for evolution. 
+                We operate at the intersection of high-level strategy and radical creativity. 
+                By providing the structural foundation and visionary leadership for our  
+                subsidiary brands, we ensure that every entity within the Void portfolio  
+                has the resources and the creative freedom to disrupt their respective markets. 
+            </p>
+        </div>
+        <img src="h2.png" alt="Mission Image" class="reverse-img">
+    </div>
 
-</div>
-     <div class="content">
-
-    <img src="h3.png" alt="Void Image" class="left-img">
-          <h2 style="color:#38bdf8;">What We Do </h2>
-    <p class="side-text">
-      
-
-Innovative Ideas: We curate and develop proprietary concepts that challenge the status quo.
-        Our internal labs are constantly prototyping the future, turning "what if" into "what is."<br>
-
-Elite Consulting: We partner with organizations to solve their most complex challenges. Using 
-        a data-driven yet unorthodox approach, our consulting arm helps businesses navigate the 
-        uncertainties of a rapidly changing global landscape.<br>
-
-Innovative Businesses: Through our daughter companies, we launch and scale ventures that represent
-        the next generation of commerce and technology. From sustainable infrastructure to cutting-edge 
-        digital experiences, our portfolio is a testament to our commitment to progress.<br>
-    </p>
-
-</div>
+    <div class="content">
+        <img src="h3.png" alt="Void Image" class="left-img">
+        <div>
+            <h2 style="color:#38bdf8;">What We Do </h2>
+            <p class="side-text">
+                Innovative Ideas: We curate and develop proprietary concepts that challenge the status quo.<br><br>
+                Elite Consulting: We partner with organizations to solve their most complex challenges.<br><br>
+                Innovative Businesses: Through our daughter companies, we launch and scale ventures.
+            </p>
+        </div>
+    </div>
 </div>
 
 <!-- ABOUT SECTION -->
@@ -380,9 +381,7 @@ Innovative Businesses: Through our daughter companies, we launch and scale ventu
         <h2>About Us</h2>
         <p style="max-width:800px; margin:0 auto; color:#cbd5e1;">
             Void Corporation is a diversified enterprise managing multiple subsidiaries 
-            across technology, innovation, and business consulting sectors. 
-            We aim to build a strong ecosystem of forward-thinking companies that drive 
-            sustainable growth and digital transformation.
+            across technology, innovation, and business consulting sectors.
         </p>
     </div>
 </div>
@@ -391,24 +390,21 @@ Innovative Businesses: Through our daughter companies, we launch and scale ventu
 <div id="subsidiary" class="page-section">
     <div class="hero">
         <h2>Our Subsidiaries</h2>
-
         <div class="container">
-        <div class="card" onclick="window.open('https://nishustark1678-star.github.io/my-website/', '_blank')" style="cursor:pointer;">
+            <div class="card" onclick="window.open('https://nishustark1678-star.github.io/my-website/', '_blank')" style="cursor:pointer;">
                 <img src="logo.png" alt="Techtotem">
                 <h3>Techtotem</h3>
-                <p>Electronics and advanced technology solutions for modern industries.</p>
-        </div>
-
+                <p>Electronics and advanced technology solutions.</p>
+            </div>
             <div class="card">
                 <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=60" alt="Future Division">
                 <h3>Future Division</h3>
-                <p>Research and futuristic product development division.</p>
+                <p>Research and futuristic product development.</p>
             </div>
-
             <div class="card">
                 <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=800&q=60" alt="Consulting Division">
                 <h3>Consulting Division</h3>
-                <p>Business consulting and digital transformation services.</p>
+                <p>Business consulting and digital transformation.</p>
             </div>
         </div>
     </div>
@@ -418,14 +414,12 @@ Innovative Businesses: Through our daughter companies, we launch and scale ventu
 <div id="contact" class="page-section">
     <div class="hero">
         <h2>Contact Us</h2>
-
         <div class="contact-container">
             <div class="contact-item">
                 <h4>Phone</h4>
                 <p>+91 7027031104</p>
                 <p>Call Attender: Mr. Parveen</p>
             </div>
-
             <div class="contact-item">
                 <h4>Address</h4>
                 <p>Mohali, Chandigarh, India</p>
@@ -439,18 +433,23 @@ Innovative Businesses: Through our daughter companies, we launch and scale ventu
     © 2026 Void Corporation | All Rights Reserved
 </footer>
 
-<!-- CORRECTED JAVASCRIPT -->
+<!-- JAVASCRIPT -->
 <script>
-// Ad images array - use image URLs as strings
+// ======== YOUR AD IMAGES - CHANGE THESE ========
 const adImages = [
-    "ads.png",
-    "ads1.png",
-    "ads3.png"
-    // Add more ad images like: "ad2.jpg", "ad3.jpg"
+    "ads.png",     // Your first ad image
+     "ads1.png", "ads2.png" 
 ];
 
 let currentAdIndex = 0;
 let adInterval;
+
+// Set first image when page loads
+window.onload = function() {
+    if (adImages.length > 0) {
+        document.getElementById('adImage').src = adImages[0];
+    }
+};
 
 function showAd() {
     document.getElementById('adPopup').style.display = 'flex';
@@ -501,4 +500,3 @@ function showPage(pageId) {
 
 </body>
 </html>
-
