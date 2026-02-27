@@ -433,8 +433,11 @@ Innovative Businesses: Through our daughter companies, we launch and scale ventu
 <script>
 
 const images = [
-"https://images.unsplash.com/photo-1504384308090-c894fdcc538d"
+"https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=60"
 ];
+    imgTag.onerror = function() {
+    imgTag.src = "https://via.placeholder.com/1600x900";
+};
 
 let currentImage = 0;
 let adInterval;
@@ -499,4 +502,5 @@ function showPage(pageId) {
 </script>
 </body>
 </html>
+
 
