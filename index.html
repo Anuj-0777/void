@@ -18,12 +18,9 @@ body{
 .ad-popup {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.95);
-    z-index: 9999;
     
 }
 
@@ -41,8 +38,8 @@ body{
 }
 .ad-close {
     position: absolute;
-    top: -20px;
-    right: -20px;
+    top: 20px;
+    right: 20px;
     width: 40px;
     height: 40px;
     background: white;
@@ -468,10 +465,10 @@ function closeAd() {
 }
 
 // Show ad after 2 seconds
-setTimeout(showAd, 500);
+setTimeout(showAd, 9000);
 
 // Auto close after 10 seconds
-setTimeout(closeAd, 100000);
+setTimeout(closeAd, 20000);
 
 // Page switch function
 function showPage(pageId) {
@@ -497,6 +494,7 @@ function showPage(pageId) {
 
 </body>
 </html>
+
 
 
 
