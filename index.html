@@ -433,51 +433,47 @@ Innovative Businesses: Through our daughter companies, we launch and scale ventu
 <script>
 
 const images = [
-"https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=60"
+"https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=60",
+"https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=1600&q=60",
+"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=60"
 ];
-    imgTag.onerror = function() {
-    imgTag.src = "https://via.placeholder.com/1600x900";
-};
 
 let currentImage = 0;
 let adInterval;
-let imageElements = [];
 
-// Preload all images first
 window.addEventListener("load", function() {
 
     const popup = document.getElementById("ad-popup");
     const imgTag = document.getElementById("ad-image");
 
-    // Preload images
-    images.forEach(src => {
-        const img = new Image();
-        img.src = src;
-        imageElements.push(img);
-    });
+    // Fallback if image fails
+    imgTag.onerror = function() {
+        imgTag.src = "https://via.placeholder.com/1600x900";
+    };
 
-    // Show first image immediately
-    imgTag.src = images[0];
+    // Show first image
+    imgTag.src = images[currentImage];
 
+    // Show popup
     popup.style.display = "flex";
     document.body.style.overflow = "hidden";
 
-    startAdSlider();
-});
-
-function startAdSlider(){
+    // Start slider
     adInterval = setInterval(function(){
         currentImage = (currentImage + 1) % images.length;
-        document.getElementById("ad-image").src = images[currentImage];
+        imgTag.src = images[currentImage];
     }, 5000);
-}
 
+});
+
+// Close popup
 function closeAd(){
     document.getElementById("ad-popup").style.display = "none";
     document.body.style.overflow = "auto";
     clearInterval(adInterval);
 }
 
+// Page switch function
 function showPage(pageId) {
 
     const sections = document.querySelectorAll('.page-section');
@@ -502,5 +498,6 @@ function showPage(pageId) {
 </script>
 </body>
 </html>
+
 
 
