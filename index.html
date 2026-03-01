@@ -204,7 +204,7 @@ nav .nav-btn.active{
 }
 .image-box{
     position:relative;
-    width:500px;
+    width:100%;
 }
 
 .image-box img{
@@ -541,6 +541,9 @@ window.onload = function() {
     if (adImages.length > 0) {
         document.getElementById('adImage').src = adImages[0];
     }
+
+    showAd();                 // Show ad immediately
+    setTimeout(closeAd, 25000);  // Close after 25 seconds
 };
 
 function showAd() {
@@ -562,10 +565,6 @@ function closeAd() {
     clearInterval(adInterval);
 }
 
-window.onload = function() {
-    showAd();                 // Show immediately
-    setTimeout(closeAd, 25000);  // Close after 25 seconds
-};
 
 // Page switch function
 function showPage(pageId) {
@@ -591,4 +590,5 @@ function showPage(pageId) {
 
 </body>
 </html>
+
 
