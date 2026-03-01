@@ -223,6 +223,53 @@ nav .nav-btn.active{
     flex-wrap:wrap;
     margin-top:40px;
 }
+    .image-box{
+    position:relative;
+    width:500px;
+}
+
+.image-box img{
+    width:100%;
+    border-radius:15px;
+    display:block;
+}
+
+/* Base overlay style */
+.overlay-text{
+    position:absolute;
+    color:white;
+    background:rgba(0,0,0,0.6);
+    padding:10px 15px;
+    border-radius:8px;
+    font-size:18px;
+}
+
+/* Position Options */
+.top-left{
+    top:15px;
+    left:15px;
+}
+
+.top-right{
+    top:15px;
+    right:15px;
+}
+
+.bottom-left{
+    bottom:15px;
+    left:15px;
+}
+
+.bottom-right{
+    bottom:15px;
+    right:15px;
+}
+
+.center{
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+}
 
 .card{
     background:#020617;
@@ -416,105 +463,12 @@ footer{
 <div id="about" class="page-section">
     <div class="hero">
         <h2>About Us</h2>
-        <p>
-            Void Corporation is a diversified enterprise managing multiple subsidiaries 
-            across technology, innovation, and business consulting sectors.<br>
-            Void was born from a simple realization:<br>
-
-Innovation fails not because ideas are weak — but because structure is missing.<br>
-
-In a world where startups struggle with scalability and corporations struggle with creativity, Void was created to bridge that gap.<br>
-
-We combine:<br>
-
-Corporate-level systems<br>
-
-Startup-level agility<br>
-
-Long-term strategic vision<br>
-
-From our first conceptual framework to expanding into multiple verticals, our focus has remained constant:<br>
-Build foundations that allow ideas to evolve fearlessly.<br><br>
-
-🎯 Our Mission<br>
-
-To empower visionary ventures with the structure, strategy, and leadership required to redefine their industries.<br>
-
-We exist to:<br>
-
-Build scalable ecosystems<br>
-
-Enable innovation without chaos<br>
-
-Create sustainable long-term impact<br><br>
-
-🌍 Our Vision<br>
-
-To become a globally recognized strategic holding company that nurtures transformative brands across technology, consulting, and future-driven industries.<br>
-
-We envision a future where:<br>
-
-Creativity is supported by structure<br>
-
-Innovation is guided by intelligence<br>
-
-Growth is intentional and sustainable<br><br>
-
-🧩 Our Core Values<br>
-1️⃣ Strategic Intelligence<br>
-
-Every move is intentional. Every expansion is calculated. <br><br>
-
-2️⃣ Radical Innovationv<br>
-
-We encourage bold thinking and unconventional solutions.<br><br>
-
-3️⃣ Structural Excellence
-<br>
-Strong foundations create long-term empires.<br><br>
-
-4️⃣ Integrity & Transparency<br>
-
-Trust is our operational currency.<br><br>
-
-5️⃣ Sustainable Growth<br>
-
-We prioritize impact over short-term gains.<br><br>
-
-🚀 Our Ecosystem<br>
-
-Void operates through a network of specialized divisions and subsidiaries, each designed to address specific market demands<br>
-            while remaining aligned with our central philosophy.<br>
-
-* Tech Division<br>
-
-Building digital infrastructure, innovative platforms, and scalable technology solutions.-controlled by Anuj<br><br>
-
-* Consulting Division<br>
-
-Providing strategic advisory services to businesses navigating complex transitions.-taken care by Parveen<br><br>
-
-* Future Ventures Division<br>
-
-Exploring emerging industries, next-gen models, and experimental innovations.-associated with Shubham<br><br>
-
-
-
-👥 Leadership<br>
-
-
-Founder & Strategic Director<br>
-
-A visionary entrepreneur focused on building scalable ecosystems and long-term value-driven ventures.- innovator Garvit<br>
-
-Operations Lead
-
-Specializes in process optimization, structural development, and operational scalability.-innovator naman<br>
-
-Creative Director
-
-Drives brand positioning, design language, and innovation frameworks.-RND Head:Braj,- managing head:Krish<br><br>
-        </p>
+      <div class="image-box">
+    <img src="h1.png" alt="About Image">
+    <div class="overlay-text top-left">
+        Your text here
+    </div>
+</div>
     </div>
      </div>
 
@@ -631,6 +585,7 @@ function showPage(pageId) {
 
 </body>
 </html>
+
 
 
 
