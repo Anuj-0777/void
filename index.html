@@ -249,6 +249,35 @@ nav .nav-btn.active{
     left:50%;
     transform:translate(-50%, -50%);
 }
+    .full-image-section{
+    position:relative;
+    width:100%;
+    height:100vh;   /* Full screen height */
+    overflow:hidden;
+}
+
+.full-image-section img{
+    width:100%;
+    height:100%;
+    object-fit:cover;   /* Makes image cover full area */
+}
+
+/* Overlay text */
+.overlay-text{
+    position:absolute;
+    color:white;
+    background:rgba(0,0,0,0.6);
+    padding:20px 30px;
+    border-radius:10px;
+    font-size:28px;
+}
+
+/* Center Position */
+.center{
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+}
 .card{
     background:#020617;
     width:300px;
@@ -441,7 +470,7 @@ footer{
 <div id="about" class="page-section">
     <div class="hero">
         <h1>About Us</h1>
-       <div class="image-box">
+     <div class="full-image-section">
     <img src="ab1.png" alt="About Image">
     <div class="overlay-text center">
       Void was born from a simple realization:<br>
@@ -451,54 +480,6 @@ Innovation fails not because ideas are weak — but because structure is missing
 In a world where startups struggle with scalability and corporations struggle with creativity, Void was created to bridge that gap.<br>
     </div>
 </div>
-        <div class="image-box">
-    <img src="your-image.jpg" alt="About Image">
-    <div class="overlay-text top-left">
-        Your text here
-    </div>
-</div>
-        <div class="image-box">
-    <img src="your-image.jpg" alt="About Image">
-    <div class="overlay-text top-left">
-        Your text here
-    </div>
-</div>
-        <div class="image-box">
-    <img src="your-image.jpg" alt="About Image">
-    <div class="overlay-text top-left">
-        Your text here
-    </div>
-</div>
-        <div class="image-box">
-    <img src="your-image.jpg" alt="About Image">
-    <div class="overlay-text top-left">
-        Your text here
-    </div>
-</div>
-    </div>
-     </div>
-
-<!-- SUBSIDIARIES SECTION -->
-<div id="subsidiary" class="page-section">
-    <div class="hero">
-        <h2>Our Subsidiaries</h2>
-        <div class="container">
-            <div class="card" onclick="window.open('https://nishustark1678-star.github.io/my-website/', '_blank')" style="cursor:pointer;">
-                <img src="logo.png" alt="Techtotem">
-                <h3>Techtotem</h3>
-                <p>Electronics and advanced technology solutions.</p>
-            </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=60" alt="Future Division">
-                <h3>Future Division</h3>
-                <p>Research and futuristic product development.</p>
-            </div>
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=800&q=60" alt="Consulting Division">
-                <h3>Consulting Division</h3>
-                <p>Business consulting and digital transformation.</p>
-            </div>
-        </div>
     </div>
 </div>
 
@@ -590,5 +571,6 @@ function showPage(pageId) {
 
 </body>
 </html>
+
 
 
