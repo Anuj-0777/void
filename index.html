@@ -249,17 +249,48 @@ nav .nav-btn.active{
     left:50%;
     transform:translate(-50%, -50%);
 }
-    #about .about-image-container{
-    width:100%;   /* change width */
-    height:100%;  /* change height */
-    margin:40px auto;
+   /* FULL SCREEN ABOUT IMAGE */
+#about .about-image-container{
+    position:relative;
+    width:100%;
+    height:100vh;      /* Full screen height */
+    overflow:hidden;
 }
 
-#about .about-img{
+/* Image fits perfectly */
+#about .about-image-container img{
     width:100%;
     height:100%;
-    object-fit:cover;
+    object-fit:cover;  /* No distortion */
+    display:block;
+}
+
+/* Natural text overlay */
+#about .overlay-text{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    color:white;
+    font-size:26px;
+    line-height:1.8;
+    text-align:center;
+    padding:30px;
+    max-width:900px;
+
+    /* Makes text blend naturally */
+    background:rgba(0,0,0,0.4);
+    backdrop-filter:blur(4px);
     border-radius:15px;
+}
+    #about .about-image-container::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.6));
 }
     .full-image-section{
     position:relative;
@@ -583,6 +614,7 @@ function showPage(pageId) {
 
 </body>
 </html>
+
 
 
 
