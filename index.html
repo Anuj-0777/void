@@ -60,7 +60,41 @@ body{
 .ad-close:hover {
     background: #e0e0e0;
 }
+/* HAMBURGER */
+.hamburger{
+    font-size:28px;
+    cursor:pointer;
+    color:#38bdf8;
+    display:none;
+}
 
+/* Responsive */
+@media (max-width: 768px){
+
+    nav{
+        flex-wrap:wrap;
+    }
+
+    .hamburger{
+        display:block;
+    }
+
+    .nav-buttons{
+        display:none;
+        width:100%;
+        flex-direction:column;
+        margin-top:15px;
+    }
+
+    .nav-buttons.show{
+        display:flex;
+    }
+
+    .nav-btn{
+        width:100%;
+        text-align:center;
+    }
+}
 
 /* NAVBAR - Buttons on RIGHT side */
 nav{
@@ -425,12 +459,18 @@ footer{
 
 <!-- NAVBAR -->
 <nav>
+    <!-- Hamburger Icon -->
+    <div class="hamburger" onclick="toggleMenu()">
+        ☰
+    </div>
+
     <h1>VOID CORPORATION</h1>
-    <div class="nav-buttons">
+
+    <div class="nav-buttons" id="navMenu">
         <a class="nav-btn active" onclick="showPage('home')" id="btn-home">Home</a>
-        <a class="nav-btn active" onclick="showPage('about')" id="btn-about">About</a>
-        <a class="nav-btn active" onclick="showPage('subsidiary')" id="btn-subsidiary">Subsidiary</a>
-        <a class="nav-btn active" onclick="showPage('contact')" id="btn-contact">Contact</a>
+        <a class="nav-btn" onclick="showPage('about')" id="btn-about">About</a>
+        <a class="nav-btn" onclick="showPage('subsidiary')" id="btn-subsidiary">Subsidiary</a>
+        <a class="nav-btn" onclick="showPage('contact')" id="btn-contact">Contact</a>
     </div>
 </nav>
 
@@ -485,32 +525,7 @@ footer{
 <div id="about" class="page-section">
     <div class="hero">
         <h1>About Us</h1>
-   <div class="about-image-container">
-    <img src="ab1.png" alt="About Image">
-    <div class="overlay-text center">
-     .<br><br><br>Void was born from a simple realization:<br>
-
-Innovation fails not because ideas are weak — but because structure is missing.<br>
-
-In a world where startups struggle with scalability and corporations struggle with creativity, Void was created to bridge that gap.<br>
-    </div>
-</div>
-
-     <div class="about-image-container">
-    <img src="ab2.png" alt="About Image">
-    <div class="overlay-text center">
-     .<br><br><br>We combine:<br>
-
-Corporate-level systems<br>
-
-Startup-level agility<br>
-
-Long-term strategic vision<br>
-
-From our first conceptual framework to expanding into multiple verticals, our focus has remained constant:<br>
-Build foundations that allow ideas to evolve fearlessly.<br>
-    </div>
-</div>
+  
          </div>
 </div>
     <!-- SUBSIDIARIES SECTION -->
@@ -571,7 +586,10 @@ const adImages = [
     "ads.png",     // Your first ad image
      "ads1.png", "ads3.png" 
 ];
-
+function toggleMenu(){
+    const menu = document.getElementById("navMenu");
+    menu.classList.toggle("show");
+}
 let currentAdIndex = 0;
 let adInterval;
 
@@ -629,6 +647,7 @@ function showPage(pageId) {
 
 </body>
 </html>
+
 
 
 
