@@ -448,6 +448,51 @@ footer{
     font-size:20px;
     line-height:1.8;
 }
+    /* SUBSIDIARY BACKGROUND SECTION */
+#subsidiary{
+    position: relative;
+    background: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    padding:100px 20px;
+}
+
+/* Dark overlay for readability */
+#subsidiary::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.75);
+}
+
+/* Content above overlay */
+#subsidiary .section{
+    position:relative;
+    z-index:2;
+}
+
+/* Big heading */
+#subsidiary h2{
+    font-size:45px;
+    color:#38bdf8;
+    margin-bottom:10px;
+}
+
+/* subtitle text */
+.sub-text{
+    color:#cbd5e1;
+    max-width:700px;
+    margin:auto;
+    font-size:18px;
+    line-height:1.7;
+}
+
+/* Glass effect cards */
+.card{
+    backdrop-filter: blur(10px);
+    background:rgba(2,6,23,0.8);
+}
 </style>
 </head>
 
@@ -660,32 +705,44 @@ Our goal is not only to create digital tools but also to inspire creativity,<br>
 </div>
     <!-- SUBSIDIARIES SECTION -->
 <div id="subsidiary" class="page-section">
-    <div class="section">
-        <h2>Our Subsidiaries</h2>
 
-        <div class="container">
+<div class="section">
 
-            <div class="card">
-                <a href="https://nishustark1678-star.github.io/my-website/">
-                <img src="logo.png">
-                <h3>Techtotem</h3>
-                <p>Electronics and advanced technology solutions for modern industries.</p>
-            </div>
-        </a>
+<h2>Our Subsidiaries</h2>
 
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=60" alt="Future Division">
-                <h3>Future Division</h3>
-                <p>Research and futuristic product development division.</p>
-            </div>
+<p class="sub-text">
+Void Corporation builds and supports innovative companies that focus on
+technology, research, and digital transformation. Each subsidiary operates
+with creativity and independence while benefiting from the strategic
+guidance of Void.
+</p>
 
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=800&q=60" alt="Consulting Division">
-                <h3>Consulting Division</h3>
-                <p>Business consulting and digital transformation services.</p>
-            </div>
-        </div>
-    </div>
+<div class="container">
+
+<div class="card">
+<a href="https://nishustark1678-star.github.io/my-website/">
+<img src="logo.png">
+<h3>Techtotem</h3>
+<p>Electronics and advanced technology solutions for modern industries.</p>
+</a>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=60">
+<h3>Future Division</h3>
+<p>Research and futuristic product development division.</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=800&q=60">
+<h3>Consulting Division</h3>
+<p>Business consulting and digital transformation services.</p>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 <!-- CONTACT SECTION -->
@@ -779,6 +836,7 @@ function showPage(pageId) {
 
 </body>
 </html>
+
 
 
 
